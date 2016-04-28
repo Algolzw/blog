@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-28 10:34:16 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="algo.blog.model.Piccate" table="PICCATE">
+        <id name="cateId" type="java.lang.Integer">
+            <column name="CATEID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="comment" type="java.lang.String">
+            <column name="COMMENT" />
+        </property>
+        <property name="cn1" type="java.lang.String">
+            <column name="CN1" />
+        </property>
+        <set name="beautypics" table="PICCATE" inverse="false" lazy="true">
+            <key>
+                <column name="CATEID" />
+            </key>
+            <element type="string">
+                <column name="BEAUTYPICS" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>

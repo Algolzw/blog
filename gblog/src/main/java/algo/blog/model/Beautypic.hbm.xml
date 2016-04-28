@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-28 10:34:16 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="algo.blog.model.Beautypic" table="BEAUTYPIC">
+        <id name="picId" type="java.lang.Integer">
+            <column name="PICID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="urlPath" type="java.lang.String">
+            <column name="URLPATH" />
+        </property>
+        <property name="uploadTime" type="java.util.Date">
+            <column name="UPLOADTIME" />
+        </property>
+        <property name="size" type="int">
+            <column name="SIZE" />
+        </property>
+        <property name="hot" type="int">
+            <column name="HOT" />
+        </property>
+        <property name="comment" type="java.lang.String">
+            <column name="COMMENT" />
+        </property>
+        <property name="deleted" type="boolean">
+            <column name="DELETED" />
+        </property>
+        <property name="cn1" type="java.lang.String">
+            <column name="CN1" />
+        </property>
+        <set name="piccates" table="BEAUTYPIC" inverse="false" lazy="true">
+            <key>
+                <column name="PICID" />
+            </key>
+            <element type="string">
+                <column name="PICCATES" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>

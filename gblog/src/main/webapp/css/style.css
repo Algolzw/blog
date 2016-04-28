@@ -1,0 +1,156 @@
+html, body {
+	height: 100%;
+}
+
+.container-fluid{
+	padding:0 -15px!important;
+}
+
+/*
+
+*/
+.content-wapper {
+	min-height: 100%;
+	height:auto;
+	background: #131212 no-repeat fixed top;
+	background:-moz-linear-gradient(top, #131212, rgba(20, 20, 20, 0.9));
+	background:-webkit-gradient(linear, 0 0, 0 bottom, from(#131212), to(rgba(20, 20, 20, .7))); 
+	padding-top: 80px;
+ 	transition:background 1s linear;
+		-moz-transition:background 1s; Firefox 4
+		-webkit-transition:background 1s; Safari and Chrome
+		-o-transition:background 1s; Opera 
+}
+
+
+/*
+.wapper-bg{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background-color:#444;
+	z-index:-1;
+}
+*/
+
+.container {
+	background: transparent #EFEFEF;
+}
+
+.add-form label, .add-form legend {
+	color: #EFEFEF !important;
+}
+
+ .file-preview-frame{
+ 	background-color:#FFFFFF;
+ }
+ 
+ .form-btn{
+ 	margin-top:25px;
+ }
+ 
+ #catesList{
+ 	max-width:1520px;
+ 	display:table;
+ 	margin:37px auto;
+ 	text-align:center;
+ }
+ 
+ 
+ 
+ #catesList li{
+ 	text-align:center;
+ 	margin:0 19px;
+ }
+ 
+.cate-block{
+	position:relative;
+ 	width:330px;
+ 	min-width:300px;
+ 	height:auto;
+ 	margin:40px auto;
+ 	overflow:hidden;
+ 	background:#2B2B2B;
+ 	border-radius:18px;
+ 	cursor:pointer;
+ }
+ 
+.cate-block .img{
+	position:relative;
+ 	width:300px;
+ 	max-width:100%;
+ 	height:220px;
+ 	margin:15px;
+ 	border:2px solid #4b4b4b;
+ 	border-radius:5px;
+ 	overflow:hidden;
+ 	transition:transform .8s;	
+ }
+ 
+ .cate-block .img:hover{
+ 	border:none;
+ 	transform:rotate(180deg) scale(1.1,1.2);
+ }
+ 
+ .cate-block img{
+ 	width:100%;
+ 	height:100%;
+ 	transition:transform 1s;	
+ }
+ 
+ .info-wapper{
+ 	display:none;
+ }
+ 
+ .mask{
+ 	position:absolute;
+ 	width:300px;
+ 	height:220px;;
+ 	top:0;
+ 	left:0;
+ 	background:#111;
+ 	z-index:1;
+ 	opacity:.9;
+ }
+ 
+ .remark{
+ 	position:absolute;
+ 	width:300px;
+ 	height:220px;;
+ 	top:0;
+ 	left:0;
+ 	color:#EFEFEF;
+ 	background:transparent;
+ 	padding:18px;
+ 	z-index:1000;
+ 	transform:rotate(180deg);
+ 	
+ }
+ 
+  .cate-block a{
+ 	text-decoration:none;
+ 	color:#EFEFEF;
+ }
+ 
+ .cate-block a:hover{
+ 	text-decoration:none;
+ 	color:#EFEFEF;
+ }
+ 
+span.cate-name{
+ 	font:normal bold 24px/32px "微软雅黑",arial,sans-serif;
+ 	margin:20px;
+ 	line-height:68px;
+ }
+ 
+ span.cate-comment{
+ 	font:normal 16px/28px "楷体",arial,sans-serif;
+ 	max-width:120px;
+ 	line-height:36px;
+ }
+ 
+ 
+ 
+ 
