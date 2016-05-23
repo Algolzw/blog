@@ -180,7 +180,7 @@ public class ImageProvider implements ImageService {
 	public Beautypic getById(int picId) {
 		conn = new DBConnection();
 		Beautypic pic = null;
-		String sql = "SELECT name,urlpath,uploadtime,size,hot,coment,cn1 FROM beautypic WHERE picid=? AND deleted=0";
+		String sql = "SELECT name,urlpath,uploadtime,size,hot,comment,cn1 FROM beautypic WHERE picid=? AND deleted=0";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, picId);
@@ -209,7 +209,7 @@ public class ImageProvider implements ImageService {
 	public List getAll() {
 		conn = new DBConnection();
 		List pics = new ArrayList<Beautypic>();
-		String sql = "SELECT picid,name,urlpath,uploadtime,size,hot,coment,cn1 FROM beautypic WHERE deleted=0 ORDER BY hot,uploadtime";
+		String sql = "SELECT picid,name,urlpath,uploadtime,size,hot,comment,cn1 FROM beautypic WHERE deleted=0 ORDER BY hot,uploadtime";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
@@ -239,7 +239,7 @@ public class ImageProvider implements ImageService {
 	public List getAll(String orderby) {
 		conn = new DBConnection();
 		List pics = new ArrayList<Beautypic>();
-		String sql = "SELECT picid,name,urlpath,uploadtime,size,hot,coment,cn1 FROM beautypic WHERE deleted=0 ORDER BY "
+		String sql = "SELECT picid,name,urlpath,uploadtime,size,hot,comment,cn1 FROM beautypic WHERE deleted=0 ORDER BY "
 				+ orderby;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -269,7 +269,7 @@ public class ImageProvider implements ImageService {
 	public List getAll(int cateId){
 		conn = new DBConnection();
 		List pics = new ArrayList<Beautypic>();
-		String sql = "SELECT B.picid,B.name,B.urlpath,B.uploadtime,B.size,B.hot,B.coment,B.cn1 "
+		String sql = "SELECT B.picid,B.name,B.urlpath,B.uploadtime,B.size,B.hot,B.comment,B.cn1 "
 				+ "FROM beautypic AS B JOIN picincate AS P ON B.picid=P.picid WHERE B.deleted=0 ORDER BY B.hot,B.uploadtime";
 		try {
 			pstmt = conn.prepareStatement(sql);

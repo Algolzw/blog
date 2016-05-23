@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
-	String path = request.getContextPath();
-%>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <link rel="stylesheet"
-	href="${path }/gblog/sources/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="${path }/gblog/css/style.css">
+	href="${path }/sources/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${path }/css/style.css">
 <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -82,7 +81,7 @@ ul.navbar-nav a {
 				<div class="navbar navbar-fixed-top navbar-inverse" id="nav-top"
 					role="navigation">
 					<div class="navbar-header">
-						<a href="${path }/gblog" class="navbar-brand">gblog</a>
+						<a href="${path }/index" class="navbar-brand">gblog</a>
 						<button class="btn btn-primary navbar-toggle"
 							data-toggle="collapse" data-target=".navbar-responsive-collapse"
 							type="button">
@@ -118,8 +117,8 @@ ul.navbar-nav a {
 		</div>
 	</div>
 
-	<script src="${path }/gblog/sources/jquery.js"></script>
-	<script src="${path }/gblog/sources/jquery.color-2.1.2.js"></script>
-	<script src="${path }/gblog/sources/bootstrap/js/bootstrap.js"></script>
+	<script src="${path }/sources/jquery.js"></script>
+	<script src="${path }/sources/jquery.color-2.1.2.js"></script>
+	<script src="${path }/sources/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

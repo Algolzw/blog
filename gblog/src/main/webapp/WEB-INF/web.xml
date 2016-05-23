@@ -32,6 +32,14 @@
     <servlet-name>addcates</servlet-name>
     <url-pattern>/addcate</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>ImagesInCate</servlet-name>
+  	<servlet-class>algo.blog.serv.ImagesInCate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ImagesInCate</servlet-name>
+  	<url-pattern>/images</url-pattern>
+  </servlet-mapping>
   <display-name>Welcome to Tomcat</display-name>
   <description>
      Welcome to Tomcat
