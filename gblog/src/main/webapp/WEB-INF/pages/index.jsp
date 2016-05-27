@@ -30,7 +30,7 @@
 									<img alt="${cate.name }" class="img-responsive"
 										src="${path }/${cate.cover }">
 									<div class="info-wapper">
-										<a class="remark" href="${path }/images?cateid=${cate.cateId}"> <span class="cate-name"> <c:out
+										<a class="remark" href="${path }/image/imagesincate?cateid=${cate.cateId}"> <span class="cate-name"> <c:out
 													value="${cate.name }" />
 										</span><br> <span class="cate-comment"><c:out
 													value="${cate.comment }" /></span>

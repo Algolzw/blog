@@ -7,11 +7,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import utility.DateUtil;
 import algo.blog.db.DBConnection;
 import algo.blog.model.Beautypic;
 import algo.blog.service.inter.ImageService;
 
+@Service
 public class ImageProvider implements ImageService {
 
 	private DBConnection conn = null;

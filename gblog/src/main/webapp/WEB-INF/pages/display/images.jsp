@@ -15,7 +15,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 </head>
 <body style="height:auto">
-	<jsp:include page="/header.jsp"></jsp:include>
+	<c:import url="../header.jsp"></c:import>
 	<div class="content-wapper container-fluid wapper-display">
 		<div class="content-center">
 			<div class="content-header">
