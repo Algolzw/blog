@@ -5,10 +5,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import algo.blog.db.DBConnection;
 import algo.blog.model.Piccate;
 import algo.blog.service.inter.PicCateService;
 
+@Service
 public class CateProvider implements PicCateService {
 
 	DBConnection conn = null;

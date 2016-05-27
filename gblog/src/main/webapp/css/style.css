@@ -1,5 +1,14 @@
-html, body {
-	height: 100%;
+html{
+	height:100%;
+	width:auto;
+} 
+body {
+	height:100%;
+	width:auto;
+}
+
+a:hover,a:link,a:visited,a:active{
+	text-decoration:none;
 }
 
 .container-fluid{
@@ -9,12 +18,16 @@ html, body {
 /*
 
 */
+
 .content-wapper {
 	min-height: 100%;
-	height:auto;
-	background: #131212 no-repeat fixed top;
-	background:-moz-linear-gradient(top, #131212, rgba(20, 20, 20, 0.9));
-	background:-webkit-gradient(linear, 0 0, 0 bottom, from(#131212), to(rgba(20, 20, 20, .7))); 
+	height:100%;
+	max-height:auto;
+	width:auto;
+	background: #131212 repeat fixed;
+	background:-moz-linear-gradient(top, #131212, rgba(20, 20, 20, 0.9)) no-repeat fixed;
+	background:-webkit-gradient(linear, 0 0, 0 bottom, from(#131212), to(rgba(20, 20, 20, .7))) no-repeat fixed;
+	background-size:cover;
 	padding-top: 80px;
  	transition:background 1s linear;
 		-moz-transition:background 1s; Firefox 4
@@ -22,6 +35,13 @@ html, body {
 		-o-transition:background 1s; Opera 
 }
 
+.wapper-index{
+	width:auto;
+}
+
+.wapper-display{
+	min-width:949px;
+}
 
 /*
 .wapper-bg{
@@ -150,6 +170,160 @@ span.cate-name{
  	max-width:120px;
  	line-height:36px;
  }
+ 
+ 
+ /*展示图片集*/
+ 
+ .content-center{
+ 	width:924px;
+ 	height:100%; 	
+ 	display:table;
+ 	margin:0px auto;
+ }
+ .content-header{
+ 	padding-top:20px;
+ 	background:#EDEDEF;
+ 	box-shadow:1px 1px 1px #666;
+ }
+ .content-header h3{
+ 	margin-top:0;
+ }
+ 
+ .cate-title{
+ 	color:#444;
+ 	font-family:"Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
+ 	padding-left:30px;
+ 	line-height:62px;
+ 	padding-bottom:10px;
+ 	border-bottom:1px solid #D1D1D1;
+	
+ }
+ 
+ .mark-title{
+ 	margin-right:14px;
+ 	font-size:18px;
+ 	color:#B3B3B3;
+ }
+ 
+ .content-header label{
+ 	font:normal 14px/18px "楷体","Microsoft YaHei","微软雅黑","宋体",arial,sans-serif;
+ 	margin-left:12px;
+ }
+ 
+ .btn-group-bordered{
+ 	font:normal 16px/24px "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";
+ 	margin-right:25px;
+ }
+ 
+ .btn-group-bordered .actived{
+ 	background-color:#DFDFDF !important;
+ }
+ 
+ .content-core{
+ 	width:100%;
+ 	min-height:800px;
+ 	height:auto;
+ 	padding:2px 26px 10px 14px;
+ 	margin-top:12px;
+ 	background:#EDEDEF;
+ 	
+ }
+
+ .imgitem{
+ 	position:relative;
+ 	height:250px;
+ 	overflow:hidden;
+ 	overflow-x:hidden;
+ 	padding-right:28px;
+ 	margin-top:20px;
+ }
+ 
+ .imgitem .img-holder{
+ 	position:relative;
+ 	height:240px;
+ 	box-shadow:2px 2px 2px #9C9C9C,
+ 				0px -1px 2px #9C9C9C;
+ 				margin-left:10px;
+ }
+ 
+ .img-holder a{
+ 	
+ }
+ 
+ .img-item{
+ 	position:absolute;
+ 	width:100%;
+ 	height:200px;
+ 	top:0;
+ 	left:0;
+ 	background:#545554;
+ 	margin:0px;
+ }
+
+ .layer{
+ 	position:absolute;
+ 	width:100%;
+ 	height:200px;
+ 	top:0;
+ 	left:0;
+ 	background:#91A1A8;
+ 	margin:0px;
+ 	opacity: 0.3;
+        filter: alpha(opacity:30);
+    display:none;
+	
+ }
+ 
+.img-footer{
+	position:absolute;
+	width:100%;
+ 	height:40px;
+ 	top:200px;
+ 	left:0;
+ 	font:normal 20px/34px "Microsoft YaHei","微软雅黑",tahoma,arial,simsun;
+ 	line-height:40px;
+ 	padding-left:3px;
+ 	padding-right:10px;
+}
+
+.img-footer a{
+	color:#343434;
+	cursor:pointer;
+	padding:0 3px 0 8px;
+	font-family:"楷体","Microsoft YaHei","微软雅黑",tahoma,arial,simsun;
+}
+.img-footer a:hover{
+	
+	color:#7594B3;
+	text-decoration:none;
+}
+
+ 
+.img-hot{
+	padding:0 8px;
+	line-height:40px;
+	font:16px;
+}
+ 
+.img-hot i{
+	color:#818181;
+	font-size:20px;
+	margin-top:10px;
+}
+
+.img-hot i:hover{
+	cursor:pointer;
+	color:#DD4339;
+	font-size:20px;
+	margin-top:10px;
+}
+
+.img-footer span{
+	font:normal 16px/40px "Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";
+	color:#616161;
+}
+ 
+ 
  
  
  

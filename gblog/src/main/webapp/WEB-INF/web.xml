@@ -16,7 +16,43 @@
   limitations under the License.
 -->
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" metadata-complete="true" version="3.0">
-  <servlet>
+  
+  <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+	<servlet>
+		<servlet-name>springDispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/blog-service.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Map all requests to the DispatcherServlet for handling -->
+	<servlet-mapping>
+		<servlet-name>springDispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+  	
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>forceEncoding</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <!-- <servlet>
     <servlet-name>showCates</servlet-name>
     <servlet-class>algo.blog.serv.IndexServlet</servlet-class>
   </servlet>
@@ -32,8 +68,21 @@
     <servlet-name>addcates</servlet-name>
     <url-pattern>/addcate</url-pattern>
   </servlet-mapping>
-  <display-name>Welcome to Tomcat</display-name>
+  <servlet>
+  	<servlet-name>ImagesInCate</servlet-name>
+  	<servlet-class>algo.blog.serv.ImagesInCate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ImagesInCate</servlet-name>
+  	<url-pattern>/images</url-pattern>
+  </servlet-mapping> -->
+  <display-name>Welcome to gblog</display-name>
   <description>
-     Welcome to Tomcat
+     Welcome to gblog
   </description>
+  <welcome-file-list>
+  	<welcome-file>index.htm</welcome-file>
+  	<welcome-file>index.html</welcome-file>
+  	<welcome-file>index</welcome-file>
+  </welcome-file-list>
 </web-app>

@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>首页</title>
 <c:set var="path" value="${pageContext.request.contextPath }" />
-
+ 
 <c:if test="${empty cates}">
 	<c:redirect url="index"></c:redirect>
 </c:if>
@@ -19,7 +19,7 @@
 </head>
 <body class="body">
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="container-fluid content-wapper">
+	<div class="container-fluid content-wapper wapper-index">
 		<div class="row">
 			<div id="catesList">
 				<ul class="list-inline">
@@ -30,7 +30,7 @@
 									<img alt="${cate.name }" class="img-responsive"
 										src="${path }/${cate.cover }">
 									<div class="info-wapper">
-										<a class="remark" href="${path }/imagesincate?cateid=${cate.cateId}"> <span class="cate-name"> <c:out
+										<a class="remark" href="${path }/image/imagesincate?cateid=${cate.cateId}"> <span class="cate-name"> <c:out
 													value="${cate.name }" />
 										</span><br> <span class="cate-comment"><c:out
 													value="${cate.comment }" /></span>
