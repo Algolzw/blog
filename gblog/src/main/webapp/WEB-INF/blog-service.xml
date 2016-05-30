@@ -23,7 +23,8 @@
 	<mvc:resources location="/sources/" mapping="/sources/**"></mvc:resources>
 	<mvc:resources location="/web-images/" mapping="/web-images/**"></mvc:resources>
 	<mvc:resources location="/upload-pics/" mapping="/upload-pics/**"></mvc:resources>
-	<mvc:resources location="/" mapping="/*.html,/*.htm"></mvc:resources>
+	<mvc:resources location="/" mapping="/*.html"></mvc:resources>
+		<mvc:resources location="/" mapping="/*.htm"></mvc:resources>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/pages/"></property>
