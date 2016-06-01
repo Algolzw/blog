@@ -3,12 +3,10 @@ package algo.blog.controller;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import algo.blog.model.Beautypic;
@@ -17,6 +15,7 @@ import algo.blog.service.inter.ImageService;
 import algo.blog.service.inter.PicCateService;
 
 @Controller
+@RequestMapping(value="/image")
 public class ImagesListController {
 	
 	@Inject
@@ -24,17 +23,13 @@ public class ImagesListController {
 	@Inject
 	private ImageService imageService;
 	
-	@RequestMapping("/image/imagesincate")
-	public String showImagesInCate(HttpServletRequest request,Model model){
-		String cateId = request.getParameter("cateid");
-		if(cateId==null){
-			cateId = "1";
-		}
-		int id = Integer.parseInt(cateId);
+	@RequestMapping("/imagesincate/{cateId}")
+	public String showImagesInCate(@PathVariable int cateId, Model model){
+
 		//获取类别
-		Piccate cate = getCate(id);
+		Piccate cate = getCate(cateId);
 		model.addAttribute("cate", cate);
-		ArrayList<Beautypic> images = getImages(id);
+		ArrayList<Beautypic> images = getImages(cateId);
 		int res =0;
 		if (images != null) {
 			res = images.size();
@@ -43,13 +38,11 @@ public class ImagesListController {
 		model.addAttribute("images", images);
 		return "display/images";
 	}
-	
-	
-	
+
 	@SuppressWarnings({ "unchecked", "resource" })
 	private ArrayList<Beautypic> getImages(int id) {
 		ArrayList<Beautypic> images = new ArrayList<>();
-		images = (ArrayList<Beautypic>) imageService.getAll(id);
+		images = (ArrayList<Beautypic>) imageService.getAll(id,"hot");
 		return images;
 	}
 	

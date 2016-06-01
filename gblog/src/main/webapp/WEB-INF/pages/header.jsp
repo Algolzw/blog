@@ -81,7 +81,7 @@ ul.navbar-nav a {
 				<div class="navbar navbar-fixed-top navbar-inverse" id="nav-top"
 					role="navigation">
 					<div class="navbar-header">
-						<a href="${path }/index" class="navbar-brand">gblog</a>
+						<a href="${path }/imagecate" class="navbar-brand">gblog</a>
 						<button class="btn btn-primary navbar-toggle"
 							data-toggle="collapse" data-target=".navbar-responsive-collapse"
 							type="button">
@@ -91,7 +91,7 @@ ul.navbar-nav a {
 					</div>
 					<div class="collapse navbar-collapse navbar-responsive-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="#">image</a></li>
+							<li><a href="${path }/imagecate">image</a></li>
 							<li><a href="#">music</a></li>
 							<li><a href="#">article</a></li>
 						</ul>

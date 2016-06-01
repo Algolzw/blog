@@ -109,4 +109,14 @@ public class Piccate implements java.io.Serializable {
 		this.beautypics = beautypics;
 	}
 
+	@Override
+	public String toString() {
+		return "Piccate [cateId=" + cateId + ", name=" + name + ", comment="
+				+ comment + ", cover=" + cover + ", mark=" + mark
+				+ ", deleted=" + deleted + ", cn1=" + cn1 + ", beautypics="
+				+ beautypics + "]";
+	}
+	
+	
+
 }

@@ -19,5 +19,7 @@ public interface ImageService {
 	List getAll(String orderby);
 	@SuppressWarnings("rawtypes")
 	List getAll(int cateId);
+	@SuppressWarnings("rawtypes")
+	List getAll(int cateId,String orderby);
 	int getSize();
 }
