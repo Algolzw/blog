@@ -23,8 +23,7 @@
 						<fieldset>
 							<legend>添加新类别</legend>
 							<div class="">
-								<!-- <input id="file-input" type="file" name="file" class="file-loading"> -->
-								<sf:input path="cover" cssClass="form-control"/>
+								<input id="file-input" type="file" name="path" class="file-loading">
 							</div>
 							<div class="form-group">
 								<label>类别名称</label> 

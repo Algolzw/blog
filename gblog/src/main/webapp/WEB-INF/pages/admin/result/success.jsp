@@ -44,15 +44,21 @@
 </style>
 </head>
 <body class="body">
-	<c:import url="../header.jsp"></c:import>
+	<c:import url="../../header.jsp"></c:import>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 main-content">
-				<h1>操作成功！<c:out value="${piccate }" /></h1>
-				
+				<h1>操作成功！</h1>
 				<div>
-					<a href="<%=fromPage%>" class="btn btn-success">继续操作</a>
-					<a href="<%=toPage %>" class="btn btn-info">前往查看</a>
+					<a href="${path}/<%=fromPage%>" class="btn btn-success">继续操作</a>
+					<a href="${path}/<%=toPage %>" class="btn btn-info">前往查看</a>
+				</div>
+				<div>
+					name:${piccate.name }<br>
+					comment:${piccate.comment }<br>
+					mark:${piccate.mark }<br>
+					cover:<br>
+					<img src="${path }/${piccate.cover}" style="width:300px;height:200px">
 				</div>
 				<p>
 					

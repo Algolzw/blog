@@ -1,5 +1,6 @@
 $(document).on('ready',function(){
 	$("#file-input").fileinput({
+		showUpload:false,
         previewFileType: "image",
         browseClass: "btn btn-success",
         browseLabel: "选择图片",

@@ -3,10 +3,7 @@ package algo.blog.controller;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,7 +42,7 @@ public class ImagesListController {
 	@SuppressWarnings({ "unchecked", "resource" })
 	private ArrayList<Beautypic> getImages(int id) {
 		ArrayList<Beautypic> images = new ArrayList<>();
-		images = (ArrayList<Beautypic>) imageService.getAll(id);
+		images = (ArrayList<Beautypic>) imageService.getAll(id,"hot");
 		return images;
 	}
 	

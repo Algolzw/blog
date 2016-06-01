@@ -7,7 +7,7 @@
 			maxIdle="6"
 			maxWait="10000"
 			username="root"
-			password="minikj123"
+			password="luoziwei1993"
 			driverClassName="com.mysql.jdbc.Driver"
-			url="jdbc:mysql://localhost:3306/blog_content" />
+			url="jdbc:mysql://localhost:3306/blog_content?useSSL=false" />
 </Context>

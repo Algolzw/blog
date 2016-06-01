@@ -175,9 +175,10 @@ span.cate-name{
  /*展示图片集*/
  
  .content-center{
- 	width:924px;
+ 	max-width:924px;
+ 	width:100%;
  	height:100%; 	
- 	display:table;
+ 	display:block;
  	margin:0px auto;
  }
  .content-header{
@@ -234,7 +235,7 @@ span.cate-name{
  	height:250px;
  	overflow:hidden;
  	overflow-x:hidden;
- 	padding-right:28px;
+ 	padding-right:27px;
  	margin-top:20px;
  }
  
@@ -243,7 +244,7 @@ span.cate-name{
  	height:240px;
  	box-shadow:2px 2px 2px #9C9C9C,
  				0px -1px 2px #9C9C9C;
- 				margin-left:10px;
+ 	margin-left:19px;
  }
  
  .img-holder a{

@@ -298,6 +298,36 @@ public class ImageProvider implements ImageService {
 		}
 		return pics;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public List getAll(int cateId,String orderby){
+		List<Beautypic> images = new ArrayList<>();
+		conn = new DBConnection();
+		String sql = "SELECT B.picid,B.name,B.urlpath,B.uploadtime,B.size,B.hot,B.comment,B.cn1 "
+				+ "FROM beautypic AS B JOIN picincate AS P ON B.picid=P.picid WHERE B.deleted=0 ORDER BY B."+orderby;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			Beautypic pic = null;
+			while (rs.next()) {
+				pic = new Beautypic();
+				pic.setPicId(rs.getInt("picid"));
+				pic.setName(rs.getString("name"));
+				pic.setUrlPath(rs.getString("urlpath"));
+				pic.setUploadTime(rs.getDate("uploadtime"));
+				pic.setSize(rs.getInt("size"));
+				pic.setHot(rs.getInt("hot"));
+				pic.setComment(rs.getString("comment"));
+				pic.setCn1(rs.getString("cn1"));
+				images.add(pic);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+		return images;
+	}
 
 	@Override
 	public int getSize() {

@@ -14,9 +14,9 @@
 </c:if>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 </head>
-<body style="height:auto">
+<body style="height:auto;background-size:cover;">
 	<c:import url="../header.jsp"></c:import>
-	<div class="content-wapper container-fluid wapper-display">
+	<div class="content-wapper container">
 		<div class="content-center">
 			<div class="content-header">
 				<div class="btn-group pull-right btn-group-bordered">
@@ -32,7 +32,7 @@
 			<div class="content-core">
 				<div class="row">
 				<c:forEach var="image" items="${images }" >
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt="${image.comment }"
@@ -47,7 +47,7 @@
 						</div>
 					</div>
 					</c:forEach>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -62,7 +62,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -77,7 +77,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -92,7 +92,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -107,7 +107,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -122,7 +122,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -137,7 +137,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -152,7 +152,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -167,7 +167,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -182,7 +182,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -197,7 +197,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -212,7 +212,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -227,7 +227,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -242,7 +242,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -257,7 +257,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="imgitem col-md-3 col-sm-3 col-xs-3">
+					<div class="imgitem col-md-3 col-sm-6">
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
@@ -272,7 +272,6 @@
 							</div>
 						</div>
 					</div>
-					
 					
 				</div>
 			</div>
