@@ -13,15 +13,30 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	metadata-complete="true" version="3.0">
+	<!-- <servlet> <servlet-name>Test</servlet-name> <servlet-class>serv.Test</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>Test</servlet-name> <url-pattern>/test</url-pattern> 
+		</servlet-mapping> -->
 
-	<!-- The front controller of this Spring Web application, responsible for 
-		handling all application requests -->
+<!-- 
+
+ -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>conextConfigLocation</param-name>
+		<param-value>
+			classpath:spring-service.xml
+			classpath:spring-hibernate.xml
+		</param-value>
+	</context-param>
+	
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/blog-service.xml</param-value>
+			<param-value>/WEB-INF/applicationContext.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -31,7 +46,7 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -48,19 +63,8 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
-
-	<!-- <servlet> <servlet-name>showCates</servlet-name> <servlet-class>algo.blog.serv.IndexServlet</servlet-class> 
-		</servlet> <servlet> <servlet-name>addcates</servlet-name> <servlet-class>algo.blog.serv.AddCate</servlet-class> 
-		</servlet> <servlet-mapping> <servlet-name>showCates</servlet-name> <url-pattern>/index</url-pattern> 
-		</servlet-mapping> <servlet-mapping> <servlet-name>addcates</servlet-name> 
-		<url-pattern>/addcate</url-pattern> </servlet-mapping> <servlet> <servlet-name>ImagesInCate</servlet-name> 
-		<servlet-class>algo.blog.serv.ImagesInCate</servlet-class> </servlet> <servlet-mapping> 
-		<servlet-name>ImagesInCate</servlet-name> <url-pattern>/images</url-pattern> 
-		</servlet-mapping> -->
 	<display-name>Welcome to gblog</display-name>
 	<description>
      Welcome to gblog
   </description>
-
 </web-app>
