@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	
 	<jee:jndi-lookup id="dataSource" jndi-name="/jdbc/blog" resource-ref="true" /> 	
-	<context:component-scan base-package="algo.blog.service.impl,algo.blog.controller" />
+	<context:component-scan base-package="algo.blog.controller" />
 	<mvc:annotation-driven />
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/images/" mapping="/images/**" />

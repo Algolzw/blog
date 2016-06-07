@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!--
- Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	You under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	metadata-complete="true" version="3.0">
 
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" metadata-complete="true" version="3.0">
-  
-  <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:spring-context.xml
+		</param-value>
+	</context-param>
+	
+	<!-- The front controller of this Spring Web application, responsible for 
+		handling all application requests -->
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -33,52 +41,36 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-  	
-  <filter>
-  	<filter-name>encodingFilter</filter-name>
-  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-  	<init-param>
-  		<param-name>encoding</param-name>
-  		<param-value>utf-8</param-value>
-  	</init-param>
-  	<init-param>
-  		<param-name>forceEncoding</param-name>
-  		<param-value>true</param-value>
-  	</init-param>
-  </filter>
-  <filter-mapping>
-  	<filter-name>encodingFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  
-  <!-- <servlet>
-    <servlet-name>showCates</servlet-name>
-    <servlet-class>algo.blog.serv.IndexServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>addcates</servlet-name>
-    <servlet-class>algo.blog.serv.AddCate</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>showCates</servlet-name>
-    <url-pattern>/index</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>addcates</servlet-name>
-    <url-pattern>/addcate</url-pattern>
-  </servlet-mapping>
-  <servlet>
-  	<servlet-name>ImagesInCate</servlet-name>
-  	<servlet-class>algo.blog.serv.ImagesInCate</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>ImagesInCate</servlet-name>
-  	<url-pattern>/images</url-pattern>
-  </servlet-mapping> -->
-  <display-name>Welcome to gblog</display-name>
-  <description>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- <servlet> <servlet-name>showCates</servlet-name> <servlet-class>algo.blog.serv.IndexServlet</servlet-class> 
+		</servlet> <servlet> <servlet-name>addcates</servlet-name> <servlet-class>algo.blog.serv.AddCate</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>showCates</servlet-name> <url-pattern>/index</url-pattern> 
+		</servlet-mapping> <servlet-mapping> <servlet-name>addcates</servlet-name> 
+		<url-pattern>/addcate</url-pattern> </servlet-mapping> <servlet> <servlet-name>ImagesInCate</servlet-name> 
+		<servlet-class>algo.blog.serv.ImagesInCate</servlet-class> </servlet> <servlet-mapping> 
+		<servlet-name>ImagesInCate</servlet-name> <url-pattern>/images</url-pattern> 
+		</servlet-mapping> -->
+	<display-name>Welcome to gblog</display-name>
+	<description>
      Welcome to gblog
   </description>
-  
+
 </web-app>

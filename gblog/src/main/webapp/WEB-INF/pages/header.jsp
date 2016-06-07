@@ -96,7 +96,7 @@ ul.navbar-nav a {
 							<li><a href="#">article</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">sign in</a></li>
+							<li><a href="${path }/login">sign in</a></li>
 							<li><a href="#">sign up</a></li>
 						</ul>
 						<form action="#" class="navbar-form navbar-right">
