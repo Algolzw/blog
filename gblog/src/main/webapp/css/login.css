@@ -1,0 +1,97 @@
+body{
+    background:#090601 url(../images/user/galaxy-2048x1152.jpg) no-repeat fixed top;
+}
+
+.login-area{
+    width:440px;
+    margin-top:180px;
+    display: table;
+    margin-left:auto;
+    margin-right:auto;
+    background:#EFEFEF;
+    padding:30px 20px;
+    border-radius:15px;
+    box-shadow:1px 1px 2px #FFFFFF,
+                    -1px -1px 2px #FFFFFF;
+}
+.login-area:hover{
+    animation:login-focus 3s 1;
+    box-shadow:none;
+}
+
+
+@keyframes login-focus {
+    from{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+    to{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;}
+}
+
+@keyframes login-leave {
+    from{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;;}
+    to{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+
+}
+@-moz-keyframes login-leave {
+    from{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;;}
+    to{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+
+}
+@-webkit-keyframes login-leave {
+    from{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;;}
+    to{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+
+}
+@-o-keyframes login-leave {
+    from{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;;}
+    to{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+
+}
+
+@-moz-keyframes login-focus {
+    from{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+    to{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;;}
+}
+
+@-webkit-keyframes login-focus {
+    from{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+    to{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;;}
+}
+
+@-o-keyframes login-focus {
+    from{ box-shadow:1px 1px 2px #FFFFFF,
+    -1px -1px 2px #FFFFFF;}
+    to{box-shadow:1px 1px 1px #CCC,
+    -1px -1px 1px #CCC;;}
+}
+
+.login-btn .btn{
+    margin-right:8px;
+}
+
+.source{
+    width:400px;
+    display:table;
+    margin: 20px auto;
+    color:#FFFFFF;
+}
+
+.source a{
+    color:#DEDEDE;
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+
+

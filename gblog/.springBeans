@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/test.xml</config>
 		<config>src/main/webapp/WEB-INF/blog-service.xml</config>
+		<config>src/main/resources/spring-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

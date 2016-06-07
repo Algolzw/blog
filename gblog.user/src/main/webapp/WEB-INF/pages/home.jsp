@@ -10,9 +10,9 @@
 </head>
 <body>
 <h1>  </h1>
-	<form action="${path }/user/login" method="get">
+	<form action="${path }/user/login" method="post">
 		<input type="text" name="username" placeholder="username"><br><br>
-		<input type="password" name="passowrd" placeholder="password"><br><br>
+		<input type="password" name="password" placeholder="password"><br><br>
 		<input type="submit" value="login" >
 	</form>
 </body>

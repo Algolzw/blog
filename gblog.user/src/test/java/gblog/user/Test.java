@@ -23,7 +23,7 @@ public class Test {
 	
 	@SuppressWarnings("resource")
 	static User getNameWithSpringBeanName(String name){
-		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml","spring-hibernate.xml"});
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring-service.xml","spring-hibernate.xml"});
 		UserDAO dao = (UserDAO)context.getBean("userDAOImpl");
 		return dao.getName(name);
 	}
