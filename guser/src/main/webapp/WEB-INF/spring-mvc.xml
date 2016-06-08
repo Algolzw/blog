@@ -31,10 +31,10 @@
     </bean>  
     <bean id="jsonConverter"  
         class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>  
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  
         <property name="messageConverters">  
             <list>  
-                <ref bean="stringConverter" />  
+                <ref bean="stringConverter" />
                 <ref bean="jsonConverter" />  
             </list>  
         </property>  
