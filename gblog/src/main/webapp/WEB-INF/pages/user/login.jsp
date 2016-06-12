@@ -15,7 +15,6 @@
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 <body>
 <div class="container-fluid">
@@ -27,17 +26,17 @@
                         <legend>Login</legend>
                         <div class="form-group has-feedback">
                             <label class="control-label">用户名</label>
-                            <input type="text" id="username" class="form-control" name="username" placeholder="userame">
+                            <input type="text" id="username" class="form-control" name="username" tabindex="1" placeholder="userame">
                             <span class="glyphicon glyphicon-user form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
                             <label class="control-label">密码</label>
-                            <input type="password" id="password" class="form-control" name="password" placeholder="password">
+                            <input type="password" id="password" class="form-control" name="password" tabindex="2" placeholder="password">
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
                         <div class="login-btn">
-                            <button class="btn btn-default btn-primary" id="submit" type="button">登录</button>
-                            <a href="#" class="btn btn-default btn-success">注册</a>
+                            <button class="btn btn-default btn-primary" id="submit" tabindex="3" type="button">登录</button>
+                            <a href="#" class="btn btn-default btn-success" tabindex="4">注册</a>
                         </div>
                     </fieldset>
                 </form>

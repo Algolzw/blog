@@ -11,6 +11,8 @@ $(document).ready(function(){
     		success:function(data){
     			if(data != "")
     				location.href ="http://localhost:8080/gblog/imagecate";
+    			else
+    				alert("用户名或密码错误！");
     		},
     		complete:function(){}
     	});
