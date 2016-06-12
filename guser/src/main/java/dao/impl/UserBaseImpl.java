@@ -2,8 +2,10 @@ package dao.impl;
 
 import javax.inject.Inject;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
 
 import dao.inter.UserBase;
@@ -32,25 +34,24 @@ public class UserBaseImpl implements UserBase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			session.disconnect();
+			session.close();
 		}
-
 		return user;
 	}
 
 	@Override
 	public boolean exist(String username) {
 		Session session = this.sessionFactory.openSession();
-		int count = 0;
+		long count = 0;
 		try {
 			String sql = "select count(u) from User as u where u.username=:name and u.deleted=0";
-			count = (Integer) session.createQuery(sql)
+			count = (long) session.createQuery(sql)
 					.setParameter("name", username).uniqueResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		} finally {
-			session.disconnect();
+			session.close();
 		}
 		return count > 0;
 	}
@@ -58,8 +59,16 @@ public class UserBaseImpl implements UserBase {
 	@Override
 	public User create(String username) {
 		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
 		User user = new User(username, false, false);
-		session.save(user);
+		try {
+			session.save(user);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			session.close();
+		}
 		return user;
 	}
 
@@ -68,22 +77,70 @@ public class UserBaseImpl implements UserBase {
 		Session session = this.sessionFactory.openSession();
 		User user = new User(username, anonymous, false);
 		session.save(user);
+		session.close();
 		return user;
 	}
 
 	@Override
 	public User findById(int userId) {
 		Session session = this.sessionFactory.openSession();
-		return (User) session.get(User.class, userId);
+		User user = (User) session.get(User.class, userId);
+		session.close();
+		return user;
 	}
 
 	@Override
 	public User findByName(String username) {
 		Session session = this.sessionFactory.openSession();
-		return (User) session
+		User user = (User) session
 				.createQuery(
 						"from User as u where u.username=:name and u.deleted=false")
 				.setParameter("name", username).uniqueResult();
+		session.close();
+		return user;
+	}
+
+	@Override
+	public void delete(int userId) {
+		Session session = this.sessionFactory.openSession();
+		User user = (User) session.get(User.class, userId);
+		user.setDeleted(true);
+		session.saveOrUpdate(user);
+		session.close();
+	}
+
+	@Override
+	public void delete(int userId, boolean realDelete) {
+		if (!realDelete)
+			delete(userId);
+		else {
+			Session session = this.sessionFactory.openSession();
+			String hql = "delete from User u where u.userId=:id";
+			Transaction trans = session.beginTransaction();
+			Query query = session.createQuery(hql).setParameter("id", userId);
+			query.executeUpdate();
+			trans.commit();
+			session.close();
+		}
+	}
+
+	@Override
+	public void changeUserName(String oldName, String newName) {
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		try {
+			Query query = session
+					.createQuery(
+							"update User as u set u.username=:newname where u.username=:oldname and u.deleted=false")
+					.setParameter("newname", newName)
+					.setParameter("oldname", oldName);
+			query.executeUpdate();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			session.close();
+		}
 	}
 
 }

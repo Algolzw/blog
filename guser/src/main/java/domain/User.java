@@ -95,7 +95,7 @@ public class User implements java.io.Serializable {
 		this.deleted = deleted;
 	}
 
-	@JsonIgnore
+	
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
 	public Userstate getUserstate() {
 		return this.userstate;

@@ -7,8 +7,12 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+		<config>src/test/resources/spring-test.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/resources/spring-hibernate.xml</config>
+		<config>src/main/resources/spring-service.xml</config>
+		<config>src/main/webapp/WEB-INF/spring-mvc.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

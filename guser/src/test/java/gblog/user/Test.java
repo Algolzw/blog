@@ -1,7 +1,5 @@
 package gblog.user;
 
-import javax.inject.Inject;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,6 +11,7 @@ public class Test {
 	
 	
 	public static void main(String[] args){
+		System.out.println("-----------test------------");
 		System.out.println(getNameWithSpringBeanName("algo_lzw"));
 	}
 	
@@ -23,7 +22,7 @@ public class Test {
 	
 	@SuppressWarnings("resource")
 	static User getNameWithSpringBeanName(String name){
-		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring-service.xml","spring-hibernate.xml"});
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring-service.xml","spring-test.xml"});
 		UserDAO dao = (UserDAO)context.getBean("userDAOImpl");
 		return dao.getName(name);
 	}

@@ -9,4 +9,7 @@ public interface UserBase {
 	User create(String username,boolean anonymous);
 	User findById(int userId);
 	User findByName(String username);
+	void delete(int userId);
+	void delete(int userId,boolean realDelete);
+	void changeUserName(String oldName,String newName);
 }
