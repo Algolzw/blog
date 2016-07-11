@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+	
+	<jee:jndi-lookup id="dataSource" jndi-name="/jdbc/blog" resource-ref="true" /> 	
+	<!--<context:component-scan base-package="algo.blog.controller" />-->
+	<mvc:annotation-driven />
+	<mvc:resources mapping="/static/**" location="/static/" />
+	<mvc:resources mapping="/upload-pics/**" location="/upload-pics/" />
+	<mvc:resources location="/" mapping="/*.html" />
+	<mvc:resources location="/" mapping="/*.htm" />
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+	<bean name="imagesListController" class="algo.blog.controller.ImagesListController">
+		<property name="imgManager" ref="imgManager" />
+		<property name="cateManager" ref="cateManager" />
+	</bean>
+
+	<bean name="imageCategoryController" class="algo.blog.controller.ImageCategoryController">
+		<property name="cateManager" ref="cateManager" />
+	</bean>
+
+	<bean name="userController" class="algo.blog.controller.user.UserController">
+
+	</bean>
+	
+</beans>

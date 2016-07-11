@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>上传图片</title>
 <c:set var="path" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" href="${path }/sources/fileinput/css/fileinput.css">
+<link rel="stylesheet" href="${path }/static/sources/fileinput/css/fileinput.css">
 </head>
 <body>
 <c:import url="${path }/WEB-INF/pages/header.jsp"></c:import>
@@ -30,9 +30,9 @@
 			
 		</div>
 	</div>
-	<script type="text/javascript" src="${path }/sources/fileinput/js/plugins/canvas-to-blob.js"></script>
-	<script type="text/javascript" src="${path }/sources/fileinput/js/fileinput.js"></script>
-	<script type="text/javascript" src="${path }/sources/fileinput/js/fileinput_locale_zh.js"></script>
+	<script type="text/javascript" src="${path }/static/sources/fileinput/js/plugins/canvas-to-blob.js"></script>
+	<script type="text/javascript" src="${path }/static/sources/fileinput/js/fileinput.js"></script>
+	<script type="text/javascript" src="${path }/static/sources/fileinput/js/fileinput_locale_zh.js"></script>
 	<script type="text/javascript">
 		$(document).on("ready",function(){
 			

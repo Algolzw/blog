@@ -15,7 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import utility.FileUploadTool;
-import algo.blog.service.inter.PicCateService;
+import algo.blog.service.originjdbc.inter.PicCateService;
 
 /**
  * Servlet implementation class AddCate
@@ -83,7 +83,7 @@ public class AddCate extends HttpServlet {
 			writer.println("comment:" + comment);
 			writer.println("mark:" + mark);
 			writer.println();
-			writer.print("Ìí¼ÓÊ§°Ü£¡<a href='/gblog/pages/admin/addCate.jsp'>ÖØÐÂÌí¼Ó</a>");
+			writer.print("ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½<a href='/gblog/pages/admin/addCate.jsp'>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>");
 			writer.flush();
 			writer.close();
 		}

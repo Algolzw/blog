@@ -9,8 +9,8 @@
     <meta name="viewport" content="with=device-width,initial-scale=1">
     <title>用户登录</title>
     <c:set var="path" value="${pageContext.request.contextPath}" />
-    <link rel="stylesheet" href="${path }/sources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${path }/css/login.css">
+    <link rel="stylesheet" href="${path }/static/sources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${path }/static/css/login.css">
     <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -49,9 +49,9 @@
 
 </div>
 
-<script src="${path }/sources/jquery.js"></script>
-<script src="${path }/sources/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${path }/js/login.js"></script>
+<script src="${path }/static/sources/jquery.js"></script>
+<script src="${path }/static/sources/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${path }/static/js/login.js"></script>
 </body>
 </html>
 </html>

@@ -14,7 +14,7 @@
 </c:if>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 </head>
-<body style="height:auto;background-size:cover;">
+<body style="height:auto;background-size:cover;background:#222;">
 	<c:import url="../header.jsp"></c:import>
 	<div class="content-wapper container">
 		<div class="content-center">
@@ -51,7 +51,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/3.jpg"> <span class="layer"></span>
+									src="${path }/static/images/3.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -66,7 +66,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/2.jpg"> <span class="layer"></span>
+									src="${path }/static/images/2.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -81,7 +81,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/1.jpg"> <span class="layer"></span>
+									src="${path }/static/images/1.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -96,7 +96,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/3.jpg"> <span class="layer"></span>
+									src="${path }/static/images/3.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -111,7 +111,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/2.jpg"> <span class="layer"></span>
+									src="${path }/static/images/2.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -126,7 +126,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/3.jpg"> <span class="layer"></span>
+									src="${path }/static/images/3.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -141,7 +141,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/2.jpg"> <span class="layer"></span>
+									src="${path }/static/images/2.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -156,7 +156,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/1.jpg"> <span class="layer"></span>
+									src="${path }/static/images/1.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -171,7 +171,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/3.jpg"> <span class="layer"></span>
+									src="${path }/static/images/3.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -186,7 +186,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/2.jpg"> <span class="layer"></span>
+									src="${path }/static/images/2.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -201,7 +201,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/1.jpg"> <span class="layer"></span>
+									src="${path }/static/images/1.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -216,7 +216,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/3.jpg"> <span class="layer"></span>
+									src="${path }/static/images/3.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -231,7 +231,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/2.jpg"> <span class="layer"></span>
+									src="${path }/static/images/2.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -246,7 +246,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/3.jpg"> <span class="layer"></span>
+									src="${path }/static/images/3.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -261,7 +261,7 @@
 						<div class="row">
 							<div class="img-holder col-md-12">
 								<a href=""><img class="img-item" alt=""
-									src="${path }/images/2.jpg"> <span class="layer"></span>
+									src="${path }/static/images/2.jpg"> <span class="layer"></span>
 								</a>
 								<div class="img-footer">
 									<a href="#">新春</a>
@@ -278,6 +278,6 @@
 		</div>
 
 	</div>
-	<script src="${path }/js/images.js"></script>
+	<script src="${path }/static/js/images.js"></script>
 </body>
 </html>

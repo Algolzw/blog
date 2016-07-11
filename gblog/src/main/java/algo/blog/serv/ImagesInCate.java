@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import algo.blog.model.BeautyPic;
+import algo.blog.model.PicCate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import algo.blog.model.Beautypic;
-import algo.blog.model.Piccate;
-import algo.blog.service.inter.ImageService;
-import algo.blog.service.inter.PicCateService;
+import algo.blog.service.originjdbc.inter.ImageService;
+import algo.blog.service.originjdbc.inter.PicCateService;
 
 /**
  * Servlet implementation class ImagesInCate
@@ -39,18 +39,18 @@ public class ImagesInCate extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
-		//»ñÈ¡ÉÏÏÂÎÄ
+		//
 		ApplicationContext context = new ClassPathXmlApplicationContext("blog-service.xml");
-		//Í¼Æ¬Àà±ðid
+		//cateid
 		String cateId = request.getParameter("cateid");
 		if(cateId==null){
 			cateId = "1";
 		}
 		int id = Integer.parseInt(cateId);
-		//»ñÈ¡Àà±ð
-		Piccate cate = getCate(context,id);
+		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½
+		PicCate cate = getCate(context,id);
 		request.setAttribute("cate", cate);
-		ArrayList<Beautypic> images = getImages(context,id);
+		ArrayList<BeautyPic> images = getImages(context,id);
 		int res;
 		if (images != null) {
 			res = images.size();
@@ -71,14 +71,14 @@ public class ImagesInCate extends HttpServlet {
 	}
 
 	@SuppressWarnings({ "unchecked", "resource" })
-	private ArrayList<Beautypic> getImages(ApplicationContext context,int id) {
-		ArrayList<Beautypic> images = new ArrayList<>();
+	private ArrayList<BeautyPic> getImages(ApplicationContext context,int id) {
+		ArrayList<BeautyPic> images = new ArrayList<>();
 		ImageService service = (ImageService) context.getBean("imageService");
-		images = (ArrayList<Beautypic>) service.getAll(id);
+		images = (ArrayList<BeautyPic>) service.getAll(id);
 		return images;
 	}
 	
-	private Piccate getCate(ApplicationContext context,int id){
+	private PicCate getCate(ApplicationContext context,int id){
 		PicCateService service = (PicCateService)context.getBean("cateService");
 		return service.getById(id);
 	}

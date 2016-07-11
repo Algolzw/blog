@@ -21,6 +21,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:spring-context.xml
+			classpath:spring-hibernate.xml
 		</param-value>
 	</context-param>
 	
@@ -31,7 +32,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/blog-service.xml</param-value>
+			<param-value>classpath:blog-service.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

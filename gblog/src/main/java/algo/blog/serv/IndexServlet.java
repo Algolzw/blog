@@ -10,15 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import algo.blog.model.PicCate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import algo.blog.model.Piccate;
-import algo.blog.service.*;
-import algo.blog.service.impl.CateProvider;
-import algo.blog.service.inter.PicCateService;
+import algo.blog.service.originjdbc.inter.PicCateService;
 
 /**
  * Servlet implementation class CateServlet
@@ -41,7 +38,7 @@ public class IndexServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		
-		List<Piccate> cates = getAllCate();
+		List<PicCate> cates = getAllCate();
 		
 //		HttpSession session = request.getSession();
 //		
@@ -59,10 +56,10 @@ public class IndexServlet extends HttpServlet {
 		this.doGet(request, response);
 	}
 	
-	List<Piccate> getAllCate(){
+	List<PicCate> getAllCate(){
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("blog-service.xml");
 		PicCateService service = (PicCateService)ctx.getBean("cateService");
-		ArrayList<Piccate> cates = (ArrayList<Piccate>)service.getAll();
+		ArrayList<PicCate> cates = (ArrayList<PicCate>)service.getAll();
 		return cates;
 	}
 

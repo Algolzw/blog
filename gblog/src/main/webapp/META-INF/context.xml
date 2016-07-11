@@ -3,11 +3,11 @@
 	<Resource name="jdbc/blog"
 			auth="Container"
 			type="javax.sql.DataSource"
-			maxActive="10"
+			maxActive="20"
 			maxIdle="6"
-			maxWait="10000"
+			maxWait="8000"
 			username="root"
-			password="minikj123"
+			password="luoziwei1993"
 			driverClassName="com.mysql.jdbc.Driver"
 			url="jdbc:mysql://localhost:3306/blog_content?useSSL=false" />
 </Context>

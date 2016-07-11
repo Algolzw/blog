@@ -11,7 +11,7 @@
 <title>首页</title>
 <c:set var="path" value="${pageContext.request.contextPath }" />
 
-<link rel="stylesheet" href="${path }/css/index.css">
+<link rel="stylesheet" href="${path }/static/css/index.css">
 </head>
 <body class="body">
 	<jsp:include page="header.jsp"></jsp:include>
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="${path }/js/index.js"></script>
+	<script src="${path }/static/js/index.js"></script>
 
 </body>
 </html>

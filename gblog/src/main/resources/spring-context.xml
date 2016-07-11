@@ -13,6 +13,13 @@
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
-	<context:component-scan base-package="algo.blog.service.impl"></context:component-scan>
-	
+	<context:component-scan base-package="algo.blog.service.originjdbc"></context:component-scan>
+
+	<bean id="cateManager" class="algo.blog.service.hibernate.CateManagerImpl">
+		<constructor-arg ref="sessionFactory"/>
+	</bean>
+
+	<bean id="imgManager" class="algo.blog.service.hibernate.ImgManagerImpl">
+		<constructor-arg ref="sessionFactory" />
+	</bean>
 </beans>

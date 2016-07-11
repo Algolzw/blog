@@ -11,7 +11,7 @@
 <title>添加类别</title>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet"
-	href="${path }/sources/fileinput/css/fileinput.css">
+	href="${path }/static/sources/fileinput/css/fileinput.css">
 </head>
 <body>
 	<c:import url="../header.jsp" />
@@ -56,11 +56,11 @@
 			</div>
 		</div>
 	</div>
-	<script src="${path }/js/addcate.js"></script>
+	<script src="${path }/static/js/addcate.js"></script>
 	<script
-		src="${path }/sources/fileinput/js/plugins/canvas-to-blob.js"></script>
-	<script src="${path }/sources/fileinput/js/fileinput.js"></script>
+		src="${path }/static/sources/fileinput/js/plugins/canvas-to-blob.js"></script>
+	<script src="${path }/static/sources/fileinput/js/fileinput.js"></script>
 	<script
-		src="${path }/sources/fileinput/js/fileinput_locale_zh.js"></script>
+		src="${path }/static/sources/fileinput/js/fileinput_locale_zh.js"></script>
 </body>
 </html>

@@ -2,34 +2,41 @@ package algo.blog.controller;
 
 import java.util.ArrayList;
 
-import javax.inject.Inject;
-
+import algo.blog.core.cate.CateManager;
+import algo.blog.core.img.ImgManager;
+import algo.blog.model.BeautyPic;
+import algo.blog.model.PicCate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import algo.blog.model.Beautypic;
-import algo.blog.model.Piccate;
-import algo.blog.service.inter.ImageService;
-import algo.blog.service.inter.PicCateService;
+import algo.blog.service.originjdbc.inter.ImageService;
+import algo.blog.service.originjdbc.inter.PicCateService;
 
 @Controller
 @RequestMapping(value="/image")
 public class ImagesListController {
-	
-	@Inject
-	private PicCateService picCateService;
-	@Inject
-	private ImageService imageService;
-	
+
+	private CateManager cateManager;
+
+	private ImgManager imgManager;
+
+	public void setCateManager(CateManager cateManager){
+		this.cateManager = cateManager;
+	}
+
+	public void setImgManager(ImgManager imgManager){
+		this.imgManager = imgManager;
+	}
+
 	@RequestMapping("/imagesincate/{cateId}")
 	public String showImagesInCate(@PathVariable int cateId, Model model){
 
-		//»ñÈ¡Àà±ð
-		Piccate cate = getCate(cateId);
+		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½
+		PicCate cate = getCate(cateId);
 		model.addAttribute("cate", cate);
-		ArrayList<Beautypic> images = getImages(cateId);
+		ArrayList<BeautyPic> images = getImages(cateId);
 		int res =0;
 		if (images != null) {
 			res = images.size();
@@ -40,13 +47,13 @@ public class ImagesListController {
 	}
 
 	@SuppressWarnings({ "unchecked", "resource" })
-	private ArrayList<Beautypic> getImages(int id) {
-		ArrayList<Beautypic> images = new ArrayList<>();
-		images = (ArrayList<Beautypic>) imageService.getAll(id,"hot");
+	private ArrayList<BeautyPic> getImages(int id) {
+		ArrayList<BeautyPic> images = new ArrayList<>();
+		images = (ArrayList<BeautyPic>) imgManager.getPicsInCate(id,"hot","asc");
 		return images;
 	}
 	
-	private Piccate getCate(int id){
-		return picCateService.getById(id);
+	private PicCate getCate(int id){
+		return cateManager.getById(id);
 	}
 }
