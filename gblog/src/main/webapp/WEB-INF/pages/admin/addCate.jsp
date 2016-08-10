@@ -5,16 +5,13 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<jsp:include page="../base/head.jsp" />
 <title>添加类别</title>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<link rel="stylesheet"
-	href="${path }/static/sources/fileinput/css/fileinput.css">
-</head>
+	<jsp:include page="../base/css.jsp" />
+	<link rel="stylesheet" href="${path}/static/css/style.css">
 <body>
-	<c:import url="../header.jsp" />
+	<jsp:include page="../base/header.jsp" />
 	<div class="content-wapper">
 		<div class="container">
 			<div class="row">
@@ -56,11 +53,8 @@
 			</div>
 		</div>
 	</div>
+
+	<jsp:include page="../base/js.jsp" />
 	<script src="${path }/static/js/addcate.js"></script>
-	<script
-		src="${path }/static/sources/fileinput/js/plugins/canvas-to-blob.js"></script>
-	<script src="${path }/static/sources/fileinput/js/fileinput.js"></script>
-	<script
-		src="${path }/static/sources/fileinput/js/fileinput_locale_zh.js"></script>
 </body>
 </html>

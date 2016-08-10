@@ -35,6 +35,11 @@
                 <value>algo.blog.model</value>
             </list>
         </property>
+        <!--<property name="mappingLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:hibernate/hibernate2.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
     </bean>
 
 </beans>

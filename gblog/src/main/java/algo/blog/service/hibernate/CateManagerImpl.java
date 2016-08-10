@@ -1,18 +1,13 @@
 package algo.blog.service.hibernate;
 
 import algo.blog.core.BaseGenericImpl;
-import algo.blog.core.cate.CateManager;
+import algo.blog.core.img.CateManager;
 import algo.blog.model.PicCate;
 import algo.blog.model.PicInCate;
 import algo.blog.model.PicInCatePK;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Order;
+import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -80,7 +75,7 @@ public class CateManagerImpl extends BaseGenericImpl<PicCate> implements CateMan
         }
     }
 
-    private static final int BATCH_SIZE = 500;
+    private static final int BATCH_SIZE = 50;
 
     @Override
     public void addPicsToCate(int[] picsId, int cateId) {
@@ -174,15 +169,12 @@ public class CateManagerImpl extends BaseGenericImpl<PicCate> implements CateMan
     @Override
     public List getCatesInPic(int picId) {
         try (Session session = session()) {
-            return session.createCriteria(PicCate.class, "c")
-                    .createAlias("picInCate", "pic")
-                    .add(Restrictions.eqProperty("c.cateId", "pic.cateId"))
-                    .add(Restrictions.eq("pic.picId", picId))
-                    .add(Restrictions.eq("c.deleted", false))
-                    .addOrder(Order.asc("c.mark"))
-                    .list();
-
-
+            String sql = "SELECT * FROM Piccate AS pc " +
+                    "INNER JOIN PicInCate AS pic " +
+                    "ON pc.cateId=pic.cateId " +
+                    "WHERE pic.picId=? AND pc.deleted=FALSE";
+            Query query = session.createSQLQuery(sql).addEntity(PicCate.class).setInteger(0, picId);
+            return query.list();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -192,14 +184,12 @@ public class CateManagerImpl extends BaseGenericImpl<PicCate> implements CateMan
     @Override
     public List getCatesInPic(int picId, String orderBy, String order) {
         try (Session session = session()) {
-            return session.createCriteria(PicCate.class, "c")
-                    .createAlias("picInCate", "pic")
-                    .add(Restrictions.eqProperty("c.cateId", "pic.cateId"))
-                    .add(Restrictions.eq("pic.picId", picId))
-                    .add(Restrictions.eq("c.deleted", false))
-                    .addOrder("asc".equalsIgnoreCase(order) ?
-                            Order.asc(orderBy) : Order.desc(orderBy))
-                    .list();
+            String sql = "SELECT * from Piccate AS pc " +
+                    "INNER JOIN PicInCate AS pic ON pc.cateId=pic.cateId " +
+                    "WHERE pic.picId=? AND pc.deleted=false " +
+                    "ORDER BY pc." + orderBy + " " + order;
+            Query query = session.createSQLQuery(sql).addEntity(PicCate.class).setInteger(0, picId);
+            return query.list();
         }
     }
 

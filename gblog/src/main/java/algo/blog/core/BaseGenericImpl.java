@@ -1,10 +1,7 @@
 package algo.blog.core;
 
 import algo.blog.core.exception.NotImplException;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -17,7 +14,7 @@ import java.util.Map;
 /**
  *
  */
-public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
+public abstract class BaseGenericImpl<E> implements BaseCrud, BaseGeneric<E> {
 
     //hibernate sessionFactory,从spring配置文件注入
     private SessionFactory sessionFactory;
@@ -51,29 +48,36 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @param entity
      */
     @Override
     public void create(Object entity) {
         Assert.notNull(entity);
+        Transaction trans = null;
         try (Session session = session()) {
+            trans = session.beginTransaction();
             session.save(entity);
+            trans.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            if(trans != null)
+            trans.rollback();
         }
     }
 
     /**
-     *
      * @param entity
      */
     @Override
     public void update(Object entity) {
         Assert.notNull(entity);
+        Transaction trans = null;
         try (Session session = session()) {
+            trans = session.beginTransaction();
             session.update(entity);
+            trans.commit();
         } catch (Exception e) {
+            if (trans != null) trans.rollback();
             e.printStackTrace();
         }
     }
@@ -90,27 +94,33 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @param entity
      */
     @Override
     public void delete(Object entity) {
+        Transaction trans = null;
         try (Session session = session()) {
+            trans = session.beginTransaction();
             session.delete(entity);
+            trans.commit();
         } catch (Exception e) {
+            if(trans != null) trans.rollback();
             e.printStackTrace();
         }
     }
 
     /**
-     *
      * @param entity
      */
     @Override
     public void refresh(Object entity) {
+        Transaction trans = null;
         try (Session session = session()) {
+            trans = session.beginTransaction();
             session.refresh(entity);
+            trans.commit();
         } catch (Exception e) {
+            if(trans != null) trans.rollback();
             e.printStackTrace();
         }
     }
@@ -125,22 +135,21 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     //hql查询语句
-    protected Query createQuery(String hql){
+    protected Query createQuery(String hql) {
         return session().createQuery(hql);
     }
 
     //原生sql 查询
-    protected Query createSqlQuery(String sql){
+    protected Query createSqlQuery(String sql) {
         return session().createSQLQuery(sql);
     }
 
     //criteria查询
-    protected Criteria createCriteria(Class<E> clazz){
+    protected Criteria createCriteria(Class<E> clazz) {
         return session().createCriteria(clazz);
     }
 
     /**
-     *
      * @param id
      */
     @Override
@@ -149,7 +158,6 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @param id
      * @return
      */
@@ -159,7 +167,6 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -168,7 +175,6 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @param orderBy
      * @param order
      * @return
@@ -178,7 +184,7 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
         Criteria criteria = createCriteria(clazz)
                 .add(Restrictions.eq("deleted", false))
                 .addOrder(
-                        "asc".equalsIgnoreCase(order)?
+                        "asc".equalsIgnoreCase(order) ?
                                 Order.asc(orderBy)
                                 : Order.desc(orderBy)
                 );
@@ -187,13 +193,12 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @param conditions
      * @return
      */
     @Override
     public List getList(Map<String, Object> conditions) {
-        if(conditions==null || conditions.isEmpty()) return getAll();
+        if (conditions == null || conditions.isEmpty()) return getAll();
 
         Criteria criteria = createCriteria(clazz).add(Restrictions.eq("deleted", false));
         for (Map.Entry<String, Object> entry : conditions.entrySet()) {
@@ -203,14 +208,13 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @param hql
      * @param values
      * @return
      */
     public List getList(String hql, final Object... values) {
         Query query = session().createQuery(hql);
-        if(values == null) return query.list();
+        if (values == null) return query.list();
 
         for (int i = 0; i < values.length; i++) {
             query.setParameter(i, values[i]);
@@ -219,15 +223,14 @@ public abstract class BaseGenericImpl<E> implements BaseCrud,BaseGeneric<E> {
     }
 
     /**
-     *
      * @return
      */
     @Override
-    public int count(){
-        return (Integer) session().createCriteria(clazz)
-                .add(Restrictions.eq("deleted",false))
+    public int count() {
+        return ((Long)session().createCriteria(clazz)
+                .add(Restrictions.eq("deleted", false))
                 .setProjection(Projections.rowCount())
-                .uniqueResult();
+                .uniqueResult()).intValue();
 
     }
 }

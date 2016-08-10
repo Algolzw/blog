@@ -2,7 +2,7 @@ package algo.blog.controller;
 
 import java.util.ArrayList;
 
-import algo.blog.core.cate.CateManager;
+import algo.blog.core.img.CateManager;
 import algo.blog.core.img.ImgManager;
 import algo.blog.model.BeautyPic;
 import algo.blog.model.PicCate;
@@ -10,9 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import algo.blog.service.originjdbc.inter.ImageService;
-import algo.blog.service.originjdbc.inter.PicCateService;
 
 @Controller
 @RequestMapping(value="/image")
@@ -33,7 +30,6 @@ public class ImagesListController {
 	@RequestMapping("/imagesincate/{cateId}")
 	public String showImagesInCate(@PathVariable int cateId, Model model){
 
-		//��ȡ���
 		PicCate cate = getCate(cateId);
 		model.addAttribute("cate", cate);
 		ArrayList<BeautyPic> images = getImages(cateId);

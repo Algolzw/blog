@@ -4,16 +4,13 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<jsp:include page="../base/head.jsp" />
 <title>上传图片</title>
 <c:set var="path" value="${pageContext.request.contextPath }" />
-<link rel="stylesheet" href="${path }/static/sources/fileinput/css/fileinput.css">
+<jsp:include page="../base/css.jsp" />
 </head>
 <body>
-<c:import url="${path }/WEB-INF/pages/header.jsp"></c:import>
+<jsp:include page="../base/header.jsp" />
 	<div class="content-wapper">
 		<div class="container-fluid">
 		<div class="row">

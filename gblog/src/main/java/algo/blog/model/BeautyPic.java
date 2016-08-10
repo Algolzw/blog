@@ -2,10 +2,8 @@ package algo.blog.model;
 
 import utility.DateUtil;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import static javax.persistence.GenerationType.IDENTITY;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -49,6 +47,7 @@ public class BeautyPic implements Serializable{
     }
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "picId", nullable = false)
     public int getPicId() {
         return picId;
@@ -170,5 +169,20 @@ public class BeautyPic implements Serializable{
         result = 31 * result + (deleted ? 1 : 0);
         result = 31 * result + (cn1 != null ? cn1.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "BeautyPic{" +
+                "picId=" + picId +
+                ", name='" + name + '\'' +
+                ", urlPath='" + urlPath + '\'' +
+                ", uploadTime=" + uploadTime +
+                ", size=" + size +
+                ", hot=" + hot +
+                ", comment='" + comment + '\'' +
+                ", deleted=" + deleted +
+                ", cn1='" + cn1 + '\'' +
+                '}';
     }
 }

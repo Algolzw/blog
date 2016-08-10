@@ -15,11 +15,12 @@
 
 	<context:component-scan base-package="algo.blog.service.originjdbc"></context:component-scan>
 
-	<bean id="cateManager" class="algo.blog.service.hibernate.CateManagerImpl">
+	<bean id="cateManager" class="algo.blog.service.hibernate.CateManagerImpl" init-method="init">
 		<constructor-arg ref="sessionFactory"/>
+
 	</bean>
 
-	<bean id="imgManager" class="algo.blog.service.hibernate.ImgManagerImpl">
+	<bean id="imgManager" class="algo.blog.service.hibernate.ImgManagerImpl" init-method="init">
 		<constructor-arg ref="sessionFactory" />
 	</bean>
 </beans>

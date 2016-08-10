@@ -5,12 +5,10 @@ import algo.blog.core.img.ImgManager;
 import algo.blog.model.BeautyPic;
 import algo.blog.model.PicInCate;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-
 import java.util.List;
 
 /**
@@ -20,12 +18,12 @@ public class ImgManagerImpl extends BaseGenericImpl<BeautyPic> implements ImgMan
 
     private static final int DEFAULT_CATE_ID = 1;
 
-    public ImgManagerImpl(SessionFactory sessionFactory){
+    public ImgManagerImpl(SessionFactory sessionFactory) {
         super(sessionFactory);
     }
 
     @Override
-    protected Class<BeautyPic> hookClazz(){
+    protected Class<BeautyPic> hookClazz() {
         return BeautyPic.class;
     }
 
@@ -42,6 +40,7 @@ public class ImgManagerImpl extends BaseGenericImpl<BeautyPic> implements ImgMan
             session.save(picInCate);
 
             trans.commit();
+            session.flush();
         } catch (Exception e) {
             if (trans != null) trans.rollback();
             e.printStackTrace();
@@ -55,11 +54,13 @@ public class ImgManagerImpl extends BaseGenericImpl<BeautyPic> implements ImgMan
             trans = session.beginTransaction();
 
             session.save(pic);
+            int id = pic.getPicId();
 
-            PicInCate picInCate = new PicInCate(pic.getPicId(), cateId);
+            PicInCate picInCate = new PicInCate(id, cateId);
             session.save(picInCate);
 
             trans.commit();
+            session.flush();
         } catch (Exception e) {
             if (trans != null) trans.rollback();
             e.printStackTrace();
@@ -78,7 +79,7 @@ public class ImgManagerImpl extends BaseGenericImpl<BeautyPic> implements ImgMan
                 PicInCate picInCate = new PicInCate(pics[i].getPicId(), cateId);
                 session.save(picInCate);
 
-                if(i%100==0){
+                if (i % 100 == 0) {
                     session.flush();
                     session.clear();
                 }
@@ -93,13 +94,12 @@ public class ImgManagerImpl extends BaseGenericImpl<BeautyPic> implements ImgMan
     @Override
     public List getPicsInCate(int id) {
         try (Session session = session()) {
-            return session.createCriteria(BeautyPic.class, "bp")
-                    .createAlias("picInCate", "pc")
-                    .add(Restrictions.eqProperty("bp.picId", "pc.picId"))
-                    .add(Restrictions.eq("pc.cateId", id))
-                    .add(Restrictions.eq("bp.deleted", false))
-                    .addOrder(org.hibernate.criterion.Order.desc("uploadTime"))
-                    .list();
+            Query query = session.createSQLQuery("SELECT * FROM BeautyPic AS pic INNER JOIN PicInCate AS pinc " +
+                    "ON pic.picId = pinc.picId " +
+                    "WHERE pinc.cateId=? AND pic.deleted = FALSE")
+                    .addEntity("BeautyPic", BeautyPic.class);
+            query.setInteger(0, id);
+            return query.list();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -109,15 +109,13 @@ public class ImgManagerImpl extends BaseGenericImpl<BeautyPic> implements ImgMan
     @Override
     public List getPicsInCate(int id, String orderBy, String order) {
         try (Session session = session()) {
-            return session.createCriteria(BeautyPic.class, "bp")
-                    .createAlias("picInCate", "pc")
-                    .add(Restrictions.eqProperty("bp.picId", "pc.picId"))
-                    .add(Restrictions.eq("pc.cateId", id))
-                    .add(Restrictions.eq("bp.deleted", false))
-                    .addOrder("asc".equalsIgnoreCase(order) ?
-                            Order.asc(orderBy)
-                            : Order.desc(orderBy)
-                    ).list();
+            Query query = session.createSQLQuery("SELECT * FROM beautyPic as pic inner join PicInCate as pinc " +
+                    "on pic.picId = pinc.picId " +
+                    "where pinc.cateId=? and pic.deleted = false " +
+                    "ORDER BY pic." + orderBy + " " + order)
+                    .addEntity("BeautyPic", BeautyPic.class);
+            query.setInteger(0, id);
+            return query.list();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

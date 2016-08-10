@@ -1,0 +1,46 @@
+html{
+    height:100%;
+    width:100%;
+}
+body {
+    height:100%;
+    width:100%;
+    font:normal 16px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#333333;
+    background-color:#fff;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+a:hover,a:link,a:visited,a:active{
+    text-decoration:none;
+}
+
+.container-fluid{
+    padding:0 -15px!important;
+}
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: 16px;
+}
+

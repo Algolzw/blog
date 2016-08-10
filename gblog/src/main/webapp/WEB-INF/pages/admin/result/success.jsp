@@ -44,7 +44,7 @@
 </style>
 </head>
 <body class="body">
-	<c:import url="../../header.jsp"></c:import>
+	<c:import url="../../base/header.jsp"></c:import>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 main-content">

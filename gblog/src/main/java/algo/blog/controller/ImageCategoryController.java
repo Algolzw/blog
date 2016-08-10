@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import algo.blog.core.cate.CateManager;
+import algo.blog.core.img.CateManager;
 import algo.blog.model.PicCate;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +22,7 @@ import utility.DateUtil;
 @Controller
 @RequestMapping(value = "/imagecate")
 public class ImageCategoryController {
+
     private static final String FILE_PATH = "upload-pics";
     private String serverPath = null;
     private static final String defaultPath = "images/default.gif";
@@ -65,7 +66,6 @@ public class ImageCategoryController {
             } catch (Exception e) {
                 e.printStackTrace();
                 return "index";
-
             }
             model.addAttribute("fromPage", "imagecate/addcate");
             model.addAttribute("toPage", "imagecate");
@@ -76,7 +76,7 @@ public class ImageCategoryController {
         return "admin/result/fail";
     }
 
-    // ��ȡ�������
+    // 获取图像类别
     @SuppressWarnings("unchecked")
     private List<PicCate> getAllCate() {
         ArrayList<PicCate> cates = (ArrayList<PicCate>) cateManager.getAll();

@@ -1,4 +1,4 @@
-package algo.blog.core.cate;
+package algo.blog.core.img;
 
 import algo.blog.core.BaseCrud;
 import algo.blog.core.BaseGeneric;

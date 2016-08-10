@@ -2,7 +2,7 @@ package algo.blog.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+import static javax.persistence.GenerationType.IDENTITY;
 /**
  * Created by jetluo on 16/7/7.
  */
@@ -36,7 +36,8 @@ public class PicCate implements Serializable{
     }
 
     @Id
-    @Column(name = "cateId", nullable = false)
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "cateId",unique = true,nullable = false)
     public int getCateId() {
         return cateId;
     }
@@ -133,5 +134,18 @@ public class PicCate implements Serializable{
         result = 31 * result + (deleted ? 1 : 0);
         result = 31 * result + (cn1 != null ? cn1.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PicCate{" +
+                "cateId=" + cateId +
+                ", name='" + name + '\'' +
+                ", comment='" + comment + '\'' +
+                ", cover='" + cover + '\'' +
+                ", mark=" + mark +
+                ", deleted=" + deleted +
+                ", cn1='" + cn1 + '\'' +
+                '}';
     }
 }

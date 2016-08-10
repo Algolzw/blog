@@ -34,10 +34,10 @@ public class FileUploadTool {
 	}
 
 	/***
-	 * 初始化
+	 *
 	 * 
 	 * @param format
-	 *            设置字符串编码
+	 *
 	 * @throws IOException
 	 */
 	public void init(String format) throws IOException {
@@ -64,10 +64,10 @@ public class FileUploadTool {
 	}
 
 	/***
-	 * 获取单个表单数据
+	 *
 	 * 
 	 * @param name
-	 *            标签名称
+	 *
 	 * @return
 	 */
 	public String getParam(String name) {
@@ -80,10 +80,10 @@ public class FileUploadTool {
 	}
 
 	/***
-	 * 获取复选框之类的有多个数据的表单值
+	 *
 	 * 
 	 * @param name
-	 *            标签名
+	 *
 	 * @return
 	 */
 	public String[] getParams(String name) {
@@ -100,11 +100,11 @@ public class FileUploadTool {
 	}
 
 	/***
-	 * 保存上传的文件
+	 *
 	 * 
 	 * @param path
-	 *            文件保存路劲
-	 * @return 文件名称集合
+	 *
+	 * @return
 	 * @throws IOException
 	 */
 	public List<String> saveFiles(String path) throws IOException {
